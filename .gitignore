@@ -22,3 +22,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+*.pem
+*.swp
+.DS_Store
+*.gzip
+results/
