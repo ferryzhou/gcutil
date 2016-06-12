@@ -3,7 +3,8 @@
 // Jobs are executed sequentially.
 // All files in cloud storage in specified bucket are downloaded to local after all jobs finished.
 // Example:
-//   go run pipeline.go --jobs_path=../bqclient/testdata/goodjobs01/*.yml \
+//   go build && \
+//   bqrun --jobs_path=../bqclient/testdata/goodjobs01/*.yml \
 //     --dataset=bqclient_test --bucket=bqclient_test --project=950350008903 --dst_dir=results
 package main
 
