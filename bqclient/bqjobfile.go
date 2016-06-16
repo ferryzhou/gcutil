@@ -3,6 +3,7 @@ package bqclient
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"strings"
 
 	"google.golang.org/api/bigquery/v2"
@@ -26,6 +27,7 @@ func (c *BQClient) JobFromFile(file string) (*bigquery.Job, error) {
 	if err := yaml.Unmarshal(data, &jc); err != nil {
 		return nil, fmt.Errorf("failed to parse file %v: %v", file, err)
 	}
+	log.Printf("Parsed job: %#v", jc)
 	switch jc.Command {
 	case "query":
 		return c.JobQuery(strings.TrimSpace(jc.Query), strings.TrimSpace(jc.Table)), nil
